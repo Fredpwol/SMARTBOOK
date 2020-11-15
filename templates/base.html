@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'socialsite/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'socialsite/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'socialsite/css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'socialsite/css/bootstrap-glyphicons.min.css'%}">
+    
+</head>
+<body>
+    <nav class="navbar mynav" role="navigation" id="navbar">
+        <div class="container">
+            <a class="navbar-brand mynav" href="{% url 'home' %}">Smart Book</a>
+
+            <ul class="nav navbar-right">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'posts:create' %}" class="nav-link">Post</a></li>
+                <li><a href="{% url 'groups:all' %}" class="nav-link">Groups</a></li>
+                <li><a href="{% url 'groups:create' %}" class="nav-link">Create Groups</a></li>
+                <li><a href="{% url 'accounts:logout'%}" class="nav-link">Log Out</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'groups:all' %}" class="nav-link">Groups</a></li>
+                <li class="nav-item"><a href="{% url 'accounts:login'%}" class="nav-link">Log in</a></li>
+                <li class="nav-item"><a href="{% url 'accounts:signup'%}" class="nav-link">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+            {% block content %}
+
+            
+            {% endblock %}
+    </div>
+   
+    <!-- <script src="{% static 'socialsite/js/bootstrap.min.js' %}"></script> -->
+    <script src="{% static 'socialsite/js/master.js'%}"></script>
+
+</body>
+</html>
