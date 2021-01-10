@@ -3,7 +3,7 @@ from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 from django import template
 from django.urls import reverse
-#import misaka
+# import misaka
 
 # Create your models here.
 User = get_user_model()
@@ -11,8 +11,8 @@ register = template.Library()
 
 class Group(models.Model):
     name = models.CharField(max_length=255,unique=True)
-    slug = models.SlugField(allow_unicode=True,unique=True)
-    description = models.TextField(blank=True,default='')
+    slug = models.SlugField(allow_unicode=True, unique=True)
+    description = models.TextField(blank=True, default='', max_length=250)
     description_html = models.TextField(editable=False,default=True,blank=True)
     members = models.ManyToManyField(User,through='GroupMember')
 
