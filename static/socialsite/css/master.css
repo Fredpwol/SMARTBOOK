@@ -3,15 +3,30 @@
  border: 10px solid red;
 }
 
-html,
 body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: scroll;
   background: mintcream;
   margin: 0;
 }
 
+.mynavbar{
+  background-color: #4287f5;
+  color:white;
+}
+.mynavbar a{
+  color:white;
+}
+.nav-link{
+  color: white;
+}
+.mybutton{
+  background-color: #4287f5;
+  color:white;
+  padding-top: 8px;
+  margin: 10px;
+}
 
 #note {
   position: absolute;
