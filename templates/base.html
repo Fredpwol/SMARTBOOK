@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>SMARTBOOK</title>
     <link rel="stylesheet" href="{% static 'socialsite/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'socialsite/css/bootstrap-reboot.min.css' %}">
     <link rel="stylesheet" href="{% static 'socialsite/css/master.css' %}">
@@ -11,16 +11,16 @@
     
 </head>
 <body>
-    <nav class="navbar mynav" role="navigation" id="navbar">
+    <nav class="navbar mynavbar" role="navigation" id="navbar">
         <div class="container">
-            <a class="navbar-brand mynav" href="{% url 'home' %}">Smart Book</a>
+            <a class="navbar-brand " href="{% url 'home' %}"><h2>SMARTBOOK</h2></a>
 
             <ul class="nav navbar-right">
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'posts:create' %}" class="nav-link">Post</a></li>
+                <li><a href="{% url 'posts:all' %}" class="nav-link">Posts</a></li>
                 <li><a href="{% url 'groups:all' %}" class="nav-link">Groups</a></li>
                 <li><a href="{% url 'groups:create' %}" class="nav-link">Create Groups</a></li>
-                <li><a href="{% url 'accounts:logout'%}" class="nav-link">Log Out</a></li>
+                <li><a href="{% url 'accounts:logout'%}" class="nav-link btn-danger">Log Out</a></li>
                 {% else %}
                 <li class="nav-item"><a href="{% url 'groups:all' %}" class="nav-link">Groups</a></li>
                 <li class="nav-item"><a href="{% url 'accounts:login'%}" class="nav-link">Log in</a></li>
@@ -30,7 +30,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="canvas">
             {% block content %}
 
             
