@@ -1,21 +1,33 @@
 {% extends 'groups/group_base.html'%}
 
 {% block pregroup %}
-<h1>{{group.name}}</h1>
-<h2>{{group.members.count}}</h2>
+<h1>{{group.name}}</h1>&nbsp;&nbsp;
+<div></div>
+{% if user in group.members.all%}
+<a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-md btn-outline mybutton">
+    <span class="glyphicon glyphicon-remove-circle"></span>Leave
+</a>
+{% else %}
+<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-md btn-outline mybutton">
+    <span class="glyphicon glyphicon-ok-circle"></span>Join</a>
+{% endif %}
+&nbsp;&nbsp;
+<p style="margin-top: 20px;">{{ group.members.count }} Members</p>
+<div class="container">
+    <p>{{group.description | truncatewords:20}}</p>
+</div>
 
-<div class="content">
-    {% if user in group.members.all%}
-
-    <a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>Leave</a>
-    {% else %}
-    <a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-ok-circle"></span>Join</a>
-
-    {% endif %}
 </div>
 {% endblock %}
 {% block group_content %}
+
+<div></div>
+<div>
+
 <div class="col-md-8">
+    <a class="btn btn-large btn-primary" href="/posts/new">
+        Write a new post.
+    </a>
     {% if group.posts.count == 0 %}
     <h2>No post in this group yet!</h2>
     {% else %}
