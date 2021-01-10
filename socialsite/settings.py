@@ -24,7 +24,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = '3sc844v&cu4ex8xqq_tul#l*kty)=-36q&va40koskj9-$1gyh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["https://smartbok.herokuapp.com/"]
 
